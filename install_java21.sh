@@ -23,22 +23,21 @@ else
   echo "📦 Installing SDKMAN..."
   (spin "Downloading SDKMAN..." &) 
   pid=$!
-  curl -s "https://get.sdkman.io" | bash >/dev/null 2>&1
+  curl -s "https://get.sdkman.io"
   kill $pid >/dev/null 2>&1
   wait $pid 2>/dev/null
   echo "\n✅ SDKMAN installed successfully!"
 fi
 
-# Step 2: Initialize SDKMAN
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Step 3: Install Java 21
-JAVA_VERSION="21.0.1-tem"
+JAVA_VERSION="21-tem"
 
 echo "\n🪄 Installing Java ${JAVA_VERSION}..."
 (spin "Downloading Java ${JAVA_VERSION}..." &) 
 pid=$!
-sdk install java $JAVA_VERSION >/dev/null 2>&1
+sdk install java $JAVA_VERSION
 kill $pid >/dev/null 2>&1
 wait $pid 2>/dev/null
 echo "\n✅ Java ${JAVA_VERSION} installed successfully!"
