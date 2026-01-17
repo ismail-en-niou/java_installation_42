@@ -1,5 +1,5 @@
 SCRIPT=install_java21.sh
-JAVA_VERSION=21.0.1-tem
+JAVA_VERSION=21-tem
 
 .PHONY: all chmod run remove help
 
@@ -16,7 +16,7 @@ run: chmod
 
 remove:
 	@echo "🗑 Removing Java $(JAVA_VERSION)..."
-	@bash -c "source $$HOME/.sdkman/bin/sdkman-init.sh && sdk uninstall java $(JAVA_VERSION)"
+	@bash -c "source $$HOME/.sdkman/bin/sdkman-init.sh && sdk uninstall java $(JAVA_VERSION) --force"
 	@echo "✅ Java $(JAVA_VERSION) removed!"
 
 help:
